@@ -12,14 +12,22 @@ public class shieldScript : MonoBehaviour
         anim.speed = 0;
     }
 
-    void Update() { }
+    void Update() 
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         health--;
-        int frameIndex = Invert(health, totalFrames);
-        anim.Play("shieldAnim", 0, (float)frameIndex / totalFrames);
+        int frameIndex = Invert(health, totalFrames - 1); // use totalFrames - 1
+        frameIndex = Mathf.Clamp(frameIndex, 0, totalFrames - 1);
+        anim.Play("shieldAnim", 0, (float)frameIndex / (totalFrames - 1));
         anim.speed = 0;
+
         Debug.Log("Shield Hit, HP: " + health.ToString());
     }
 
