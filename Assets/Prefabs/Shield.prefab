@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7385028662665314384}
-  - component: {fileID: 4197814185552173961}
   - component: {fileID: 4877671903610199270}
   - component: {fileID: 7993389779568330080}
   - component: {fileID: 2187060661136432852}
@@ -35,28 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &4197814185552173961
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8689000326785032745}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 537428164734295819, guid: 45b118ca9d2ca5c45a855f91c5b957e0, type: 3}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4877671903610199270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,7 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   health: 4
-  anim: {fileID: 4197814185552173961}
+  frames:
+  - {fileID: -230050285201069540, guid: 45b118ca9d2ca5c45a855f91c5b957e0, type: 3}
+  - {fileID: 6398180628638558688, guid: 45b118ca9d2ca5c45a855f91c5b957e0, type: 3}
+  - {fileID: 147924518911427922, guid: 45b118ca9d2ca5c45a855f91c5b957e0, type: 3}
+  - {fileID: 4791444847486223767, guid: 45b118ca9d2ca5c45a855f91c5b957e0, type: 3}
 --- !u!212 &7993389779568330080
 SpriteRenderer:
   serializedVersion: 2
