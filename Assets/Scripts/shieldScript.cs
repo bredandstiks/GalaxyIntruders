@@ -9,6 +9,7 @@ public class shieldScript : MonoBehaviour
 
     void Start()
     {
+        anim.Play("shieldAnim", 0, 0f); // Start at the last frame
         anim.speed = 0;
     }
 
