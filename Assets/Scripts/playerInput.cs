@@ -8,6 +8,8 @@ public class playerInput : MonoBehaviour
     public float speed = 1;
     public Animator anim;
     public SpriteRenderer sr;
+    public Sprite idleSprite;
+    public GameObject laser;
 
     private float moveSpeed;
 
@@ -18,9 +20,10 @@ public class playerInput : MonoBehaviour
 
     void Update()
     {
-        if(sr.sprite.name == "Frame_7")
+        if(sr.sprite.name == "Frame_6")
         {
             anim.speed = 0;
+            sr.sprite = idleSprite;
         }
         
 
@@ -39,6 +42,7 @@ public class playerInput : MonoBehaviour
     {
         anim.speed = 1;
         anim.Play("playerShootAnim", 0, 1f);
+        Instantiate(laser, transform.position, transform.rotation);
         Debug.Log("Shoot");
     }
 }
