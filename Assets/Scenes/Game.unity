@@ -190,7 +190,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7265961218792485657, guid: 1b544314d128dab4ead720cb7c2d2f81, type: 3}
+  m_Sprite: {fileID: -7383044787357641670, guid: 1b544314d128dab4ead720cb7c2d2f81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -275,6 +275,11 @@ MonoBehaviour:
   speed: 1
   anim: {fileID: 42379873}
   sr: {fileID: 42379866}
+  idleSprite: {fileID: -7383044787357641670, guid: 1b544314d128dab4ead720cb7c2d2f81, type: 3}
+  laser: {fileID: 849538411260287045, guid: 442f8e3ccea15234ca5b92800fcb3033, type: 3}
+  laserOffset: 0.25
+  cooldownTime: 0.25
+  logic: {fileID: 0}
 --- !u!58 &42379872
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -665,6 +670,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b68331564310a84c821b6cfc0011571, type: 3}
+--- !u!1 &1688145294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688145295}
+  - component: {fileID: 1688145296}
+  m_Layer: 0
+  m_Name: Logic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688145295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688145294}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.31054, y: 0.12713, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1688145296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688145294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08606ef554d41694582d0c97c32c5928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  score: 0
+  enemiesLeft: 0
+  dead: 0
 --- !u!1001 &1717043121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -959,7 +1011,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1860434231}
-  - component: {fileID: 1860434232}
   - component: {fileID: 1860434233}
   m_Layer: 0
   m_Name: Laser Spawn
@@ -983,19 +1034,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 42379869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1860434232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860434230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 027ac1ca3fa6653428d2b1c8ecb23d7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  laser: {fileID: 849538411260287045, guid: 442f8e3ccea15234ca5b92800fcb3033, type: 3}
 --- !u!114 &1860434233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1152,3 +1190,4 @@ SceneRoots:
   - {fileID: 1781269508}
   - {fileID: 1623941417}
   - {fileID: 7996337242050488672}
+  - {fileID: 1688145295}

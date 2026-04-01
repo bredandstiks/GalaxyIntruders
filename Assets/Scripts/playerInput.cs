@@ -10,12 +10,17 @@ public class playerInput : MonoBehaviour
     public SpriteRenderer sr;
     public Sprite idleSprite;
     public GameObject laser;
+    public float laserOffset = 10f;
+    public float cooldownTime = 1f;
+    public logicScript logic;
 
     private float moveSpeed;
+    private bool canShoot = true;
+    private float cooldownTimer;
 
     void Start()
     {
-        
+        cooldownTimer = cooldownTime;
     }
 
     void Update()
@@ -24,6 +29,16 @@ public class playerInput : MonoBehaviour
         {
             anim.speed = 0;
             sr.sprite = idleSprite;
+        }
+
+        if(!canShoot)
+        {
+            cooldownTimer -= Time.deltaTime;
+            if(cooldownTimer <= 0)
+            {
+                canShoot = true;
+                cooldownTimer = cooldownTime;
+            }
         }
         
 
@@ -40,9 +55,21 @@ public class playerInput : MonoBehaviour
 
     private void OnShoot()
     {
-        anim.speed = 1;
-        anim.Play("playerShootAnim", 0, 1f);
-        Instantiate(laser, transform.position, transform.rotation);
-        Debug.Log("Shoot");
+        if (canShoot)
+        {
+            anim.speed = 1;
+            anim.Play("playerShootAnim", 0, 1f);
+
+            Instantiate(laser, new Vector3(transform.position.x, transform.position.y + laserOffset, transform.position.z), transform.rotation);
+        }
+        canShoot = false;
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemies")
+        {
+            // add score here
+            Destroy(gameObject);
+        }
     }
 }
