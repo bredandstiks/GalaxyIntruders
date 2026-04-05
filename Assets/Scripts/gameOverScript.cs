@@ -3,27 +3,32 @@ using UnityEngine;
 public class gameOverScript : MonoBehaviour
 {
     public GameObject winText;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject loseText;
+    public GameObject darkness;
+
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(logicScript.dead)
+        if (logicScript.dead)
         {
             winText.SetActive(false);
-            this.gameObject.SetActive(true);
+            loseText.SetActive(true);
+            darkness.SetActive(true);
+            Debug.Log("Dead");
         }
-        else if(logicScript.enemiesLeft <= 0)
+        else if (logicScript.enemiesLeft <= 0)
         {
             winText.SetActive(true);
-            this.gameObject.SetActive(false);
+            loseText.SetActive(false);
+            darkness.SetActive(true);
         }
-        this.gameObject.SetActive(true);
-
-
+        else
+        {
+            loseText.SetActive(false);
+        }
     }
 }

@@ -40,7 +40,7 @@ public class laserScript : MonoBehaviour
 
         transform.position += Vector3.up * Time.deltaTime * speed;
 
-        if(transform.position.y >= 4)
+        if(transform.position.y >= 4 || transform.position.y <= -4)
         {
             Destroy(gameObject);
         }

@@ -6,7 +6,6 @@ public class playerInput : MonoBehaviour
     public InputActionReference moveLeft;
     public InputActionReference moveRight;
     public float speed = 1;
-    public Animator anim;
     public SpriteRenderer sr;
     public Sprite idleSprite;
     public GameObject laser;
@@ -25,11 +24,6 @@ public class playerInput : MonoBehaviour
 
     void Update()
     {
-        if(sr.sprite.name == "Frame_6")
-        {
-            anim.speed = 0;
-            sr.sprite = idleSprite;
-        }
 
         if(!canShoot)
         {
@@ -57,8 +51,7 @@ public class playerInput : MonoBehaviour
     {
         if (canShoot)
         {
-            anim.speed = 1;
-            anim.Play("playerShootAnim", 0, 1f);
+            
 
             Instantiate(laser, new Vector3(transform.position.x, transform.position.y + laserOffset, transform.position.z), transform.rotation);
         }

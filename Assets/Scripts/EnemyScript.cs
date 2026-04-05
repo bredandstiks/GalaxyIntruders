@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class EnemyScript : MonoBehaviour
 {
-    public enum enemyType { 
-        level1, 
-        level2, 
+    public enum enemyType
+    {
+        level1,
+        level2,
         level3
     }
 
@@ -26,64 +26,64 @@ public class EnemyScript : MonoBehaviour
     public float rayLength = 0.3f;
 
     private bool canShoot = true;
-     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         setBaseTime();
         setMoveTime();
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayLength);
+        if (!logicScript.dead)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayLength);
+            Debug.DrawRay(transform.position, Vector2.down * rayLength, Color.red);
 
-        // Visualize it in Scene view
-        Debug.DrawRay(transform.position, Vector2.down * rayLength, Color.red);
+            if (hit.collider != null && hit.collider.name.Contains("Enemy"))
+            {
+                canShoot = false;
+            }
+            else
+            {
+                canShoot = true;
+            }
 
-        if(hit.collider != null && hit.collider.name.Contains("Enemy"))
-        {
-            canShoot = false;
-        }
-        else
-        {
-            canShoot = true;
-        }
+            levelTime = baseTime - (level * levelMult);
+            if (timer >= levelTime && canShoot)
+            {
+                timer = 0;
+                Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 180));
+                setBaseTime();
+            }
+            else
+            {
+                timer += Time.deltaTime;
+            }
 
-        levelTime = baseTime - (level * levelMult);
-        if(timer >= levelTime && canShoot)
-        {
-            timer = 0;
-            Instantiate(laser, transform.position, Quaternion.Euler(0, 0, 180));
-            setBaseTime();
-        }
-        else
-        {
-            timer += Time.deltaTime;
-        }
+            levelMult = 0.2f * level;
 
-        levelMult = 0.2f * level;
+            if (moveTimer >= moveTime)
+            {
+                moveTimer = 0;
+                transform.position = new Vector3(transform.position.x, transform.position.y - moveDistance, transform.position.z);
+            }
+            else
+            {
+                moveTimer += Time.deltaTime;
+            }
 
-        if(moveTimer >= moveTime)
-        {
-            moveTimer = 0;
-            transform.position = new Vector3(transform.position.x, transform.position.y - moveDistance, transform.position.z);
-        }
-        else
-        {
-            moveTimer += Time.deltaTime;
+            if(transform.position.y <= -1.5)
+            {
+                logicScript.dead = true;
+            }
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Laser")
+        if (collision.gameObject.tag == "Laser")
         {
-            
-            Destroy(gameObject);
-
             int scr = 0;
             switch (type)
             {
@@ -100,9 +100,11 @@ public class EnemyScript : MonoBehaviour
 
             logicScript.score += scr;
             logicScript.enemiesLeft -= 1;
+
+            Destroy(gameObject);
         }
     }
-    
+
     void setBaseTime()
     {
         baseTime = Random.Range(6f, 12f) - levelMult;
