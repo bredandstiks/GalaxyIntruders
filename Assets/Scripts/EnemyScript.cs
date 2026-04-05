@@ -69,7 +69,7 @@ public class EnemyScript : MonoBehaviour
         if(moveTimer >= moveTime)
         {
             moveTimer = 0;
-            transform.position = new Vector3(transform.position.x, transform.position.y - moveDistance, transform.position.y);
+            transform.position = new Vector3(transform.position.x, transform.position.y - moveDistance, transform.position.z);
         }
         else
         {
