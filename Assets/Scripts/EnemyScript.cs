@@ -99,6 +99,7 @@ public class EnemyScript : MonoBehaviour
             }
 
             logicScript.score += scr;
+            logicScript.enemiesLeft -= 1;
         }
     }
     

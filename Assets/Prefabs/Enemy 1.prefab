@@ -171,6 +171,6 @@ MonoBehaviour:
   levelMult: 0.2
   levelTime: 0
   moveSpeed: 1
-  moveDistance: 10
+  moveDistance: 0.05
   laser: {fileID: 849538411260287045, guid: 0f07d4b2ee58cb641be1708674ce581d, type: 3}
   rayLength: 0.3
