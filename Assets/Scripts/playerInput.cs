@@ -13,7 +13,7 @@ public class playerInput : MonoBehaviour
     public float laserOffset = 10f;
     public float cooldownTime = 1f;
     public logicScript logic;
-
+    
     private float moveSpeed;
     private bool canShoot = true;
     private float cooldownTimer;
@@ -43,11 +43,11 @@ public class playerInput : MonoBehaviour
         
 
         moveSpeed = speed * Time.deltaTime;
-        if (moveLeft.action.IsPressed() && transform.position.x >= -2)
+        if (moveLeft.action.IsPressed() && transform.position.x >= -1.77)
         {
             transform.position += Vector3.left * moveSpeed;
         }
-        if (moveRight.action.IsPressed() && transform.position.x <= 2)
+        if (moveRight.action.IsPressed() && transform.position.x <= 1.9)
         {
             transform.position += Vector3.right * moveSpeed;
         }
@@ -68,8 +68,8 @@ public class playerInput : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemies")
         {
-            // add score here
             Destroy(gameObject);
+            logicScript.dead = true;
         }
     }
 }

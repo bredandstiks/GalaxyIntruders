@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class logicScript : MonoBehaviour
 {
-    public int score = 0;
-    public int enemiesLeft = 0;
-    public bool dead = false;
+    public static int score = 0;
+    public static int enemiesLeft = 0;
+    public static bool dead = false;
+
+    private void Update()
+    {
+        
+    }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6214358513266538362}
   - component: {fileID: -4562752450407985167}
   m_Layer: 0
-  m_Name: Enemy 1
+  m_Name: Enemy 2
   m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ Animator:
   m_GameObject: {fileID: 4481510204354465509}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 7263938470409834707, guid: 5a8565e854e70c1428006bb88a726121, type: 3}
+  m_Controller: {fileID: 5495972793569978542, guid: 539076d2a263923458baa520ea0f6ae6, type: 3}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9107968056395451463, guid: 5a8565e854e70c1428006bb88a726121, type: 3}
+  m_Sprite: {fileID: -6373866088841011849, guid: 539076d2a263923458baa520ea0f6ae6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e906b472386d3944b16c1abd7a705d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  type: 0
+  type: 1
   baseTime: 4
   level: 0
   levelMult: 0.2
